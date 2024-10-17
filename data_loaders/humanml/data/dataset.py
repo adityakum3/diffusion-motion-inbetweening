@@ -1101,8 +1101,8 @@ class HumanML3D(data.Dataset):
                 regradless of which dataset is loaded.
                 '''
                 # used by absolute model
-                self.mean = np.load(pjoin(opt.data_root, 'Mean.npy'))
-                self.std = np.load(pjoin(opt.data_root, 'Std.npy'))
+                self.mean = np.load(pjoin(opt.data_root, 'Mean_abs_3d.npy'))
+                self.std = np.load(pjoin(opt.data_root, 'Std_abs_3d.npy'))
 
             self.mean_gt = np.load(
                 pjoin(opt.meta_dir, f'{opt.dataset_name}_mean.npy'))
