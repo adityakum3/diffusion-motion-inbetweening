@@ -5,12 +5,12 @@ import os
 import sys
 import json
 from pprint import pprint
-from utils.fixseed import fixseed
-from utils.parser_util import train_args
-from utils import dist_util
-from train.training_loop import TrainLoop
-from data_loaders.get_data import DatasetConfig, get_dataset_loader
-from utils.model_util import create_model_and_diffusion
+from ..utils.fixseed import fixseed
+from ..utils.parser_util import train_args
+from ..utils import dist_util
+from ..train.training_loop import TrainLoop
+from ..data_loaders.get_data import DatasetConfig, get_dataset_loader
+from ..utils.model_util import create_model_and_diffusion
 from configs import card
 import wandb
 
