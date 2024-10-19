@@ -287,7 +287,7 @@ class Text2MotionDatasetV2(data.Dataset):
                 flag = False
                 # print(opt.text_dir, name)
                 with cs.open(pjoin(opt.text_dir, name + '.txt')) as f:
-                    print("heelp")
+                    # print("heelp")
                     for line in f.readlines():
                         text_dict = {}
                         line_split = line.strip().split('#')
