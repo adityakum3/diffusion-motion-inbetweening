@@ -181,7 +181,7 @@ class TrainingOptions:
                                 "choices": ['val', 'test']
                             })
     eval_during_training: bool = field(
-        default=True,
+        default=False,
         metadata={"help": "If True, will run evaluation during training."})
     eval_rep_times: int = field(
         default=3,
