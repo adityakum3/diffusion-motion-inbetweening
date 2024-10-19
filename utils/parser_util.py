@@ -181,7 +181,7 @@ class TrainingOptions:
                                 "choices": ['val', 'test']
                             })
     eval_during_training: bool = field(
-        default=False,
+        default=True,
         metadata={"help": "If True, will run evaluation during training."})
     eval_rep_times: int = field(
         default=3,
@@ -194,10 +194,10 @@ class TrainingOptions:
         metadata={
             "help": "If -1, will use all samples in the specified split."
         })
-    log_interval: int = field(default=1_000,
+    log_interval: int = field(default=1,
                               metadata={"help": "Log losses each N steps"})
     save_interval: int = field(
-        default=100_000,
+        default=1,
         metadata={"help": "Save checkpoints and run evaluation each N steps"})
     num_steps: int = field(
         default=1,
