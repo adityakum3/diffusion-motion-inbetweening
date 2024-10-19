@@ -279,7 +279,8 @@ class Text2MotionDatasetV2(data.Dataset):
         for name in tqdm(id_list):
             try:
                 # if True:
-                motion = np.load(pjoin(opt.motion_dir, name + '.npy'))
+                str = opt.motion_dir + "_abs_3d"
+                motion = np.load(pjoin(str, name + '.npy'))
                 if (len(motion)) < min_motion_len or (len(motion) >= 200):
                     continue
                 text_data = []
