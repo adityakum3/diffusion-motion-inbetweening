@@ -285,7 +285,7 @@ class Text2MotionDatasetV2(data.Dataset):
                     continue
                 text_data = []
                 flag = False
-                # print(opt.text_dir, name)
+                print(opt.text_dir, name)
                 with cs.open(pjoin(opt.text_dir, name + '.txt')) as f:
                     # print("heelp")
                     for line in f.readlines():
