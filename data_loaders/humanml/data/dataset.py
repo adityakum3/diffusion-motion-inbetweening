@@ -280,6 +280,7 @@ class Text2MotionDatasetV2(data.Dataset):
             try:
                 # if True:
                 str = opt.motion_dir 
+                print(str)
                 motion = np.load(pjoin(str, name + '.npy'))
                 if (len(motion)) < min_motion_len or (len(motion) >= 200):
                     continue
