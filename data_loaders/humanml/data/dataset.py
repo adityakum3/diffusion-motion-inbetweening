@@ -279,15 +279,15 @@ class Text2MotionDatasetV2(data.Dataset):
         for name in tqdm(id_list):
             try:
                 # if True:
-                str = opt.motion_dir #+ "_abs_3d"
-                motion = np.load(pjoin(str, name + '.npy'))
+                motion = np.load(pjoin(opt.motion_dir, name + '.npy'))
+                
                 if (len(motion)) < min_motion_len or (len(motion) >= 200):
                     continue
                 text_data = []
                 flag = False
-                # print(opt.text_dir, name)
+
                 with cs.open(pjoin(opt.text_dir, name + '.txt')) as f:
-                    # print("heelp")
+
                     for line in f.readlines():
                         text_dict = {}
                         line_split = line.strip().split('#')
@@ -337,8 +337,6 @@ class Text2MotionDatasetV2(data.Dataset):
                     new_name_list.append(name)
                     length_list.append(len(motion))
             except:
-                # print("HEelo")
-                # print(name)
                 pass
 
         name_list, length_list = zip(
