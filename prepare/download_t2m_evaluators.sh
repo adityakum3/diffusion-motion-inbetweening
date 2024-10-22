@@ -1,13 +1,14 @@
 echo -e "Downloading T2M evaluators"
-gdown --fuzzy https://drive.google.com/file/d/1DSaKqWX2HlwBtVH5l7DdW96jeYUIXsOP/view
-gdown --fuzzy https://drive.google.com/file/d/1tX79xk0fflp07EZ660Xz1RAFE33iEyJR/view
+!gdown --fuzzy https://drive.google.com/file/d/1AYsmEG8I3fAAoraT4vau0GnesWBWyeT8/view?usp=drive_link
 rm -rf t2m
-rm -rf kit
 
 unzip t2m.zip
-unzip kit.zip
 echo -e "Cleaning\n"
-rm t2m.zip
-rm kit.zip
+!tar -xvzf ./t2m.tar.gz 
+!rm ./t2m.tar.gz
+!mv ./t2m ./t2
+!mv ./t2/t2m/t2m .
+!mv ./t2/t2m/kit .
+!rm -rf ./t2
 
 echo -e "Downloading done!"

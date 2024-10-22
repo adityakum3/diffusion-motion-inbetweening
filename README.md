@@ -50,6 +50,8 @@ python3 -m venv .env_condmdi
 source .env_condmdi/bin/activate
 pip uninstall ffmpeg
 pip install spacy
+pip install -r requirements.txt
+pip install git+https://github.com/mattloper/chumpy
 python -m spacy download en_core_web_sm
 pip install git+https://github.com/openai/CLIP.git
 ```
@@ -71,8 +73,17 @@ bash prepare/download_t2m_evaluators.sh
 
 ```bash
 bash prepare/download_smpl_files.sh
+bash prepare/download_t2m_evaluators.sh
 bash prepare/download_recognition_unconstrained_models.sh
 ```
+
+Prepare wandb:
+This code uses wandb to log the training process. You can either create an account on wandb and use your own API key or use the default one provided in \prepare\wandb.py
+
+```bash
+python prepare/wandb.py
+```
+
 </details>
 
 ### 2. Get data
@@ -99,14 +110,8 @@ cp -a dataset/HumanML3D_abs/. dataset/HumanML3D/
 
 #### b. Full data (text + motion capture)
 
-**[Important !]**
-Following GMD, the representation of the root joint has been changed from relative to absolute. Therefore, you need to replace the original files and run GMD's version of `motion_representation.ipynb` and `cal_mean_variance.ipynb` provided in `./HumanML3D_abs/` instead to get the absolute-root data.
-
-**HumanML3D** - Follow the instructions in [HumanML3D](https://github.com/EricGuo5513/HumanML3D.git),
-then copy the result dataset to our repository:
-
-```shell
-cp -r ../HumanML3D/HumanML3D ./dataset/HumanML3D
+```bash
+bash prepare/download_humanml3d.sh
 ```
 
 ### 3. Download the pretrained models
