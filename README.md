@@ -144,7 +144,7 @@ python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_uncond/model0005
 python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_randomframes/model000750000.pt --edit_mode gmd_keyframes --keyframe_guidance_param 1.
 ```
 
-###  Download the pretrained models
+##  Download the pretrained models
 
 Download the model(s) you wish to use, then unzip and place them in `./save/`.
 
