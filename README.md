@@ -129,7 +129,6 @@ All evaluation are done on the HumanML3D dataset.
 
 ### Text to Motion - <u>With</u> keyframe conditioning
 
-* The output of this script for the pre-trained models (as was reported in the paper) is provided in the checkpoints zip file.
 * For each prompt, 5 keyframes are sampled from the ground truth motion. The ground locations of the root joint in those frames are used as conditions.
 
 #### on the unconditioned model
