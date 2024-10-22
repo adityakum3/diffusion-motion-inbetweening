@@ -114,7 +114,37 @@ cp -a dataset/HumanML3D_abs/. dataset/HumanML3D/
 bash prepare/download_humanml3d.sh
 ```
 
-### 3. Download the pretrained models
+## Training
+
+Our model is trained on the **HumanML3D** dataset.
+### Conditional Model
+```shell
+python -m train.train_condmdi --keyframe_conditioned
+```
+* You can ramove `--keyframe_conditioned` to train a unconditioned model.
+* Use `--device` to define GPU id.
+
+## Evaluate
+All evaluation are done on the HumanML3D dataset.
+
+### Text to Motion - <u>With</u> keyframe conditioning
+
+* Takes about 20 hours (on a single GPU)
+* The output of this script for the pre-trained models (as was reported in the paper) is provided in the checkpoints zip file.
+* For each prompt, 5 keyframes are sampled from the ground truth motion. The ground locations of the root joint in those frames are used as conditions.
+
+#### on the unconditioned model
+```shell
+python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_uncond/model000500000.pt --edit_mode gmd_keyframes --imputate --stop_imputation_at 1
+```
+* Above prompt evaluates the inference-time imputation for keyframe conditioning.
+
+#### on the conditional model
+```shell
+python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_randomframes/model000750000.pt --edit_mode gmd_keyframes --keyframe_guidance_param 1.
+```
+
+###  Download the pretrained models
 
 Download the model(s) you wish to use, then unzip and place them in `./save/`.
 
@@ -223,38 +253,6 @@ python -m visualize.render_mesh --input_path /path/to/mp4/stick/figure/file
   1. Use the [SMPL add-on](https://smpl.is.tue.mpg.de/index.html) and the theta parameters saved to `sample##_rep##_smpl_params.npy` (we always use beta=0 and the gender-neutral model).
   1. A more straightforward way is using the mesh data itself. All meshes have the same topology (SMPL), so you just need to keyframe vertex locations.
      Since the OBJs are not preserving vertices order, we also save this data to the `sample##_rep##_smpl_params.npy` file for your convenience.
-
-
-## Training
-
-Our model is trained on the **HumanML3D** dataset.
-### Conditional Model
-```shell
-python -m train.train_condmdi --keyframe_conditioned
-```
-* You can ramove `--keyframe_conditioned` to train a unconditioned model.
-* Use `--device` to define GPU id.
-
-## Evaluate
-All evaluation are done on the HumanML3D dataset.
-
-### Text to Motion - <u>With</u> keyframe conditioning
-
-* Takes about 20 hours (on a single GPU)
-* The output of this script for the pre-trained models (as was reported in the paper) is provided in the checkpoints zip file.
-* For each prompt, 5 keyframes are sampled from the ground truth motion. The ground locations of the root joint in those frames are used as conditions.
-
-#### on the unconditioned model
-```shell
-python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_uncond/model000500000.pt --edit_mode gmd_keyframes --imputate --stop_imputation_at 1
-```
-* Above prompt evaluates the inference-time imputation for keyframe conditioning.
-
-#### on the conditional model
-```shell
-python -m eval.eval_humanml_condmdi --model_path ./save/condmdi_randomframes/model000750000.pt --edit_mode gmd_keyframes --keyframe_guidance_param 1.
-```
-
 
 
 ## Acknowledgments
