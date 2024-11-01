@@ -1,5 +1,5 @@
 echo -e "Downloading T2M evaluators"
-gdown --fuzzy https://drive.google.com/file/d/1AYsmEG8I3fAAoraT4vau0GnesWBWyeT8/view?usp=drive_link
+gdown --fuzzy https://drive.google.com/file/d/19gTDVtsdZNPjq-KCASSjrxAbIY4d99aD/view?usp=sharing
 rm -rf t2m
 
 unzip t2m.zip
