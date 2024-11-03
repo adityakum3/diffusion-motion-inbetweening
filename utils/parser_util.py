@@ -194,13 +194,13 @@ class TrainingOptions:
         metadata={
             "help": "If -1, will use all samples in the specified split."
         })
-    log_interval: int = field(default=10,
+    log_interval: int = field(default=1_000,
                               metadata={"help": "Log losses each N steps"})
     save_interval: int = field(
-        default=10,
+        default=10_000,
         metadata={"help": "Save checkpoints and run evaluation each N steps"})
     num_steps: int = field(
-        default=100,
+        default=1,
         metadata={
             "help": "Training will stop after the specified number of steps."
         })
