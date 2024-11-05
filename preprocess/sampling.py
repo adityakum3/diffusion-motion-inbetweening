@@ -7,7 +7,7 @@ with open("./preprocess/output.txt", "r") as pairs:
     for line in pairs:
         parts = line.strip().split()
         score = float(parts[1])
-        scores.append(parts[1])
+        scores.append(score)
         part_0 = parts[0]
         score_map[score].append(part_0)
         
