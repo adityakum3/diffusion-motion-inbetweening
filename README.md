@@ -77,14 +77,18 @@ bash prepare/download_t2m_evaluators.sh
 bash prepare/download_recognition_unconstrained_models.sh
 ```
 
+
+</details>
+
 Prepare wandb:
 This code uses wandb to log the training process. You can either create an account on wandb and use your own API key or use the default one provided in \prepare\wandb.py
 
 ```bash
-python prepare/wandb.py
-```
+export WANDB_ENTITY="adityakv0212-indian-institute-of-technology-kanpur"
+export WANDB_PROJECT="diffusion_model"
+export WANDB_API_KEY="b4bef5407081c044c8d828f8e9686a127fcae5ea"
 
-</details>
+```
 
 ### 2. Get data
 There are two paths to get the data:
