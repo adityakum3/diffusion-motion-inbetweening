@@ -254,4 +254,5 @@ To run the code with the gaussian sampling, use the following command:
 python ./preprocess/scoring.py
 python ./preprocess/sampling.py
 ```
+
 This samples the data and stores it in the dataset/HumanML3D folder. Now we can continue with the training and evaluation of the model.
