@@ -244,3 +244,14 @@ python -m visualize.render_mesh --input_path /path/to/mp4/stick/figure/file
   1. A more straightforward way is using the mesh data itself. All meshes have the same topology (SMPL), so you just need to keyframe vertex locations.
      Since the OBJs are not preserving vertices order, we also save this data to the `sample##_rep##_smpl_params.npy` file for your convenience.
 
+### My Contribution
+
+I have added the Gaussian Sampling for the keyframes to filter the data related to swimming and skatting that was leading to jitter and sliding in the generated motion. 
+I first score the data based on how much closer it is to the swimming and skatting motion and then sample the keyframes based on the gaussian distribution of the scores.
+To run the code with the gaussian sampling, use the following command:
+
+```shell
+python ./preprocess/scoring.py
+python ./preprocess/sampling.py
+```
+This samples the data and stores it in the dataset/HumanML3D folder. Now we can continue with the training and evaluation of the model.
