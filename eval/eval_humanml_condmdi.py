@@ -131,10 +131,12 @@ def evaluate_fid(eval_wrapper, groundtruth_loader, activation_dict, file):
     gt_motion_embeddings = np.concatenate(gt_motion_embeddings, axis=0)
     gt_mu, gt_cov = calculate_activation_statistics(gt_motion_embeddings)
 
-    # print(gt_mu)
+    print(gt_mu)
+    print(gt_cov)
     for model_name, motion_embeddings in activation_dict.items():
         mu, cov = calculate_activation_statistics(motion_embeddings)
-        # print(mu)
+        print(mu)
+        print(cov)
         fid = calculate_frechet_distance(gt_mu, gt_cov, mu, cov)
         print(f'---> [{model_name}] FID: {fid:.4f}')
         print(f'---> [{model_name}] FID: {fid:.4f}', file=file, flush=True)
