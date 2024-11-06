@@ -197,10 +197,10 @@ class TrainingOptions:
     log_interval: int = field(default=1_000,
                               metadata={"help": "Log losses each N steps"})
     save_interval: int = field(
-        default=10_000,
+        default=100,
         metadata={"help": "Save checkpoints and run evaluation each N steps"})
     num_steps: int = field(
-        default=1,
+        default=1_000,
         metadata={
             "help": "Training will stop after the specified number of steps."
         })
