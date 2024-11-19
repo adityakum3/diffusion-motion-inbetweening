@@ -164,7 +164,7 @@ python -m sample.synthesize --model_path ./save/condmdi_uncond/model000500000.pt
 python -m sample.conditional_synthesis --model_path ./save/condmdi_randomframes/model000750000.pt --edit_mode uncond --num_samples 10 --num_repetitions 3
 ```
 * You can use `--no_text` to sample from the conditional model without text conditioning.
-
+* Change the name of the model with your current model to generate the motion.
 ### Generate from a single prompt
 #### using the unconditioned model
 ```shell
